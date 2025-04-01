@@ -1,0 +1,32 @@
+@model List<Tarefa>
+
+<h2>Lista de Tarefas</h2>
+
+<p><a asp-action="Criar">Criar Nova Tarefa</a></p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Descrição</th>
+            <th>Data de Criação</th>
+            <th>Concluída</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var tarefa in Model)
+        {
+            <tr>
+                <td>@tarefa.Titulo</td>
+                <td>@tarefa.Descricao</td>
+                <td>@tarefa.DataCriacao</td>
+                <td>@tarefa.Concluida</td>
+                <td>
+                    <a asp-action="Editar" asp-route-id="@tarefa.Id">Editar</a> |
+                    <a asp-action="Deletar" asp-route-id="@tarefa.Id">Deletar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

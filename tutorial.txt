@@ -1,0 +1,70 @@
+Passo 1: Instalar o .NET SDK
+Se você ainda não tem o .NET instalado, execute os comandos abaixo para instalá-lo:
+
+Atualizar a lista de pacotes
+
+Digite no terminal (bash|dos|powershell|etc)
+sudo apt update && sudo apt upgrade -y
+Adicionar o repositório da Microsoft
+
+Digite no terminal (bash|dos|powershell|etc)
+wget https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+sudo dpkg -i packages-microsoft-prod.deb
+rm packages-microsoft-prod.deb
+Instalar o SDK do .NET
+
+Digite no terminal (bash|dos|powershell|etc)
+sudo apt update && sudo apt install -y dotnet-sdk-8.0
+Verificar a instalação
+
+Digite no terminal (bash|dos|powershell|etc)
+dotnet --version
+Se tudo estiver correto, o terminal mostrará a versão instalada.
+
+Passo 2: Criar o Projeto ASP.NET Core
+Criar uma pasta para o projeto e entrar nela
+
+Digite no terminal (bash|dos|powershell|etc)
+mkdir MeuProjetoAspNet && cd MeuProjetoAspNet
+Criar um novo projeto web API
+
+Digite no terminal (bash|dos|powershell|etc)
+dotnet new webapi -n MeuProjeto
+Entrar no diretório do projeto
+
+Digite no terminal (bash|dos|powershell|etc)
+cd MeuProjeto
+Passo 3: Configurar o Servidor
+Rodar o projeto para testar
+
+Digite no terminal (bash|dos|powershell|etc)
+dotnet run
+O terminal mostrará algo como:
+
+nginx
+Now listening on: http://localhost:5000
+Isso significa que o servidor está rodando.
+
+Testar a API (Opcional)
+Abra um novo terminal e execute:
+
+Digite no terminal (bash|dos|powershell|etc)
+curl http://localhost:5000/weatherforecast
+Se estiver tudo certo, você verá uma resposta JSON.
+
+Passo 4: Executar a API em Porta Diferente (Opcional)
+Para rodar a API em uma porta específica, use:
+
+Digite no terminal (bash|dos|powershell|etc)
+dotnet run --urls "http://0.0.0.0:8080"
+Passo 5: Configurar para Produção (Opcional)
+Publicar o projeto
+
+Digite no terminal (bash|dos|powershell|etc)
+dotnet publish -c Release -o out
+Rodar o projeto publicado
+
+Digite no terminal (bash|dos|powershell|etc)
+dotnet out/MeuProjeto.dll
+Com isso, seu projeto ASP.NET Core está rodando no Ubuntu via linha de comando! 🚀
+Se precisar de mais alguma coisa, só avisar.

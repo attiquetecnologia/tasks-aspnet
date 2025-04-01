@@ -1,0 +1,6 @@
+@Tasks_aspnet_HostAddress = http://localhost:5133
+
+GET {{Tasks_aspnet_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
