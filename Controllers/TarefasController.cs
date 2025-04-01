@@ -27,7 +27,7 @@ public class TarefasController : Controller
         {
             tarefa.DataCriacao = DateTime.Now;
             _context.Tarefas.Add(tarefa);
-            _context.SaveChanges();
+            // _context.SaveChanges();
             return RedirectToAction("Index");
         }
         return View(tarefa);
@@ -49,7 +49,7 @@ public class TarefasController : Controller
         if (ModelState.IsValid)
         {
             _context.Tarefas.Update(tarefa);
-            _context.SaveChanges();
+            // _context.SaveChanges();
             return RedirectToAction("Index");
         }
         return View(tarefa);
@@ -70,7 +70,7 @@ public class TarefasController : Controller
     {
         var tarefa = _context.Tarefas.Find(id);
         _context.Tarefas.Remove(tarefa);
-        _context.SaveChanges();
+        // _context.SaveChanges();
         return RedirectToAction("Index");
     }
 }
