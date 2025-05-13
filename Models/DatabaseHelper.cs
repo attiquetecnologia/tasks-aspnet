@@ -64,7 +64,7 @@ Este exemplo fornece uma base sólida para realizar operações CRUD em um banco
 
     public bool Create(string tabela, Dictionary<string, object> dados)
     {
-        using (SqlConnection connection = new SqlConnection(_connectionString))
+        using (MysqlConnection connection = new MysqlConnection(_connectionString))
         {
             try
             {
