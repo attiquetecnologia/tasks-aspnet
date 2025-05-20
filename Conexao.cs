@@ -1,16 +1,17 @@
 using System;
-using System.Data.SQLite;
+using System.Data.SQLite; //substitua pelo driver sqlserver
 
 class Conexao
 {
     static void Main()
     {
-        string dbPath = "Data Source=meu_banco.db";
+        string dbPath = "Data Source=meu_banco.db"; //substitua por uma conexão sqlservers
 
         using (var connection = new SQLiteConnection(dbPath))
         {
             connection.Open();
 
+            // Atualize o código para um código sqlserver
             string createTable = @"CREATE TABLE IF NOT EXISTS usuarios (
                                         id INTEGER PRIMARY KEY AUTOINCREMENT,
                                         nome TEXT,
@@ -21,7 +22,9 @@ class Conexao
                 cmd.ExecuteNonQuery();
             }
 
-            string insert = "INSERT INTO usuarios (nome, email) VALUES (@nome, @email)";
+            //1- Crie uma string para inserir usuários
+            string insert = "???????????";
+            //corrija os bugs
             using (var cmd = new SQLiteCommand(insert, connection))
             {
                 cmd.Parameters.AddWithValue("@nome", "João da Silva");
@@ -29,7 +32,8 @@ class Conexao
                 cmd.ExecuteNonQuery();
             }
 
-            string select = "SELECT * FROM usuarios";
+            //2- Crie uma string para consulta 
+            string select = "SELECT * FROM ";
             using (var cmd = new SQLiteCommand(select, connection))
             using (var reader = cmd.ExecuteReader())
             {
@@ -38,6 +42,10 @@ class Conexao
                     Console.WriteLine($"ID: {reader["id"]} - Nome: {reader["nome"]} - Email: {reader["email"]}");
                 }
             }
+
+            //3- Implemente o código para apagar 
+
+            //4- Implemente o código para atualizar um registro
         }
     }
 }
