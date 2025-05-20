@@ -1,6 +1,6 @@
 using System;
 using System.Data.SQLite; //substitua pelo driver sqlserver
-
+// https://learn.microsoft.com/pt-br/azure/azure-sql/database/connect-query-dotnet-core?view=azuresql
 class Conexao
 {
     static void Main()
